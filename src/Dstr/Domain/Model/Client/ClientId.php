@@ -1,15 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Jota Quintana
- * Date: 08/06/2017
- * Time: 20:53
+ * User: Guess
+ * Date: 8/6/2017
+ * Time: 23:38
  */
 
-namespace Dstr\Domain\Model\Order;
+namespace Dstr\Domain\Model\Client;
 
 
-class OrderId
+class ClientId
 {
     /**
      * @var string
@@ -22,7 +22,7 @@ class OrderId
      */
     public function __construct(string $id = null)
     {
-        $this->id = $id === null ? Uuid::uuid4()->toString() : $id;
+        $this->id = $id === null ? Uuid::uuid4()->toString(): $id;
     }
 
     /**
@@ -34,13 +34,13 @@ class OrderId
     }
 
     /**
-     * @param OrderId $orderId
+     * @param ClientId $clientId
      * @return bool
      * @internal param ProductId $productId
      */
-    public function equals(OrderId $orderId)
+    public function equals(ClientId $clientId)
     {
-        return $this->id() === $orderId->id();
+        return $this->id() === $clientId->id();
     }
 
     /**

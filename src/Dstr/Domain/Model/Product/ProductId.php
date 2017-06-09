@@ -1,15 +1,18 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Jota Quintana
- * Date: 08/06/2017
- * Time: 20:53
+ * User: Jota Uribe
+ * Date: 8/6/2017
+ * Time: 22:59
  */
 
-namespace Dstr\Domain\Model\Order;
+namespace Dstr\Domain\Model\Product;
 
 
-class OrderId
+use Dstr\Domain\Model\Order\OrderId;
+use Ramsey\Uuid\Uuid;
+
+class ProductId
 {
     /**
      * @var string
@@ -22,7 +25,7 @@ class OrderId
      */
     public function __construct(string $id = null)
     {
-        $this->id = $id === null ? Uuid::uuid4()->toString() : $id;
+        $this->id = $id === null ? Uuid::uuid4()->toString(): $id;
     }
 
     /**
@@ -34,13 +37,12 @@ class OrderId
     }
 
     /**
-     * @param OrderId $orderId
+     * @param ProductId $productId
      * @return bool
-     * @internal param ProductId $productId
      */
-    public function equals(OrderId $orderId)
+    public function equals(ProductId $productId)
     {
-        return $this->id() === $orderId->id();
+        return $this->id() === $productId->id();
     }
 
     /**
