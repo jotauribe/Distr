@@ -21,7 +21,7 @@ class Application
             'db.options' => array(
                 'driver' => 'pdo_mysql',
                 'host' => 'localhost:3306',
-                'dbname' => 'dstr_database',
+                'dbname' => 'dstr_orders',
                 'user' => 'root',
                 'password' => ''
             )

@@ -1,13 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Guess
+ * User: Jota Uribe
  * Date: 9/6/2017
  * Time: 09:35
  */
 
 namespace Dstr\Infrastructure\Persistence\Doctrine;
 
+
+use Doctrine\DBAL\Types\Type;
 
 class EntityManagerFactory
 {
@@ -16,8 +18,9 @@ class EntityManagerFactory
      */
     public function build($conn)
     {
-        //\Doctrine\DBAL\Types\Type::addType('UserId', 'Lw\Infrastructure\Domain\Model\User\DoctrineUserId');
-        //\Doctrine\DBAL\Types\Type::addType('WishId', 'Lw\Infrastructure\Domain\Model\Wish\DoctrineWishId');
+        Type::addType('OrderId', 'Dstr\Infrastructure\Domain\Model\Order\DoctrineOrderId');
+        Type::addType('ProductId', 'Dstr\Infrastructure\Domain\Model\Product\DoctrineProductId');
+        Type::addType('ClientId', 'Dstr\Infrastructure\Domain\Model\Client\DoctrineClientId');
         return EntityManager::create(
             $conn,
             Setup::createYAMLMetadataConfiguration([__DIR__ . '/Mapping'], true)

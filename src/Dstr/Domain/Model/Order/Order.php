@@ -9,7 +9,8 @@
 namespace Dstr\Domain\Model\Order;
 
 
-use Dstr\Domain\Model\Client\Client;
+use Doctrine\Common\Collections\ArrayCollection;
+use Dstr\Domain\Model\Client\ClientId;
 
 class Order
 {
@@ -24,9 +25,9 @@ class Order
     private $date;
 
     /**
-     * @var Client
+     * @var ClientId
      */
-    private $client;
+    private $clientId;
 
     /**
      * @var OrderItem
@@ -44,12 +45,12 @@ class Order
      * @param \DateTime $date
      * @param Client $client
      */
-    public function __construct(Sring $id, \DateTime $date, Client $client)
+    public function __construct(Sring $id, \DateTime $date, ClientId $clientId)
     {
         $this->date = new \DateTime();
-        $this->orderItems = array();
+        $this->orderItems = new ArrayCollection();
         $this->id = $id;
-        $this->client = $client;
+        $this->clientId = $clientId;
     }
 
     /**
@@ -71,9 +72,9 @@ class Order
     /**
      * @return Client
      */
-    public function client(): Client
+    public function clientId(): ClientId
     {
-        return $this->client;
+        return $this->clientId;
     }
 
     /**

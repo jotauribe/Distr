@@ -2,24 +2,24 @@
 /**
  * Created by PhpStorm.
  * User: Jota Uribe
- * Date: 9/6/2017
- * Time: 09:36
+ * Date: 10/6/2017
+ * Time: 14:36
  */
 
-namespace Dstr\Infrastructure\Domain\Model\Client;
+namespace Dstr\Infrastructure\Domain\Model\Product;
 
 
 use Dstr\Infrastructure\Domain\Model\DoctrineEntityId;
 
-class DoctrineClientId extends DoctrineEntityId
+class DoctrineProductId extends DoctrineEntityId
 {
     public function getName()
     {
-        return 'ClientId';
+        return 'ProductId';
     }
 
     protected function getNamespace()
     {
-        return 'Dstr\Domain\Model\Client';
+        return 'Dstr\Domain\Model\Product';
     }
 }

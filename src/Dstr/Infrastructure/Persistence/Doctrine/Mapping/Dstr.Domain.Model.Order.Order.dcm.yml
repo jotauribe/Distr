@@ -1,0 +1,28 @@
+Dstr\Domain\Model\Order\Order:
+  type: entity
+  table: order
+  id:
+    userId:
+      column: id
+      type: OrderId
+  repositoryClass: Dstr\Infrastructure\Domain\Model\Order\DoctrineOrderRepository
+  fields:
+    date:
+      type: date
+      column: creation_date
+    clientId:
+      type: ClientId
+      column: client_id
+  manyToMany:
+    orderItems:
+      orphanRemoval: true
+      targetEntity: OrderItem
+      joinTable:
+        name: Order_Items
+        joinColumns:
+          order_id:
+            referencedColumnName: id;
+        inverseJoinColumns:
+          item_id:
+            referencedColumnName: id
+            unique: true
