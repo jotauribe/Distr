@@ -1,0 +1,20 @@
+Dstr\Domain\Model\Order\OrderItem:
+  type: entity
+  table: order_item
+  id:
+    id:
+      column: id
+      type: smallint
+  fields:
+    quantity:
+      type: float
+      column: quantity
+    total:
+      type: float
+      column: total
+  manyToOne:
+    product:
+      targetEntity: Product
+      joinColumn:
+        name: product_id
+        referencedColumnName: id;

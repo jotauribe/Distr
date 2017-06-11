@@ -10,6 +10,7 @@ namespace Dstr\Infrastructure\Persistence\Doctrine;
 
 
 use Doctrine\DBAL\Types\Type;
+use Doctrine\ORM\EntityManager;
 
 class EntityManagerFactory
 {

@@ -19,12 +19,29 @@ class Application
 
         $app->register(new DoctrineServiceProvider(), array(
             'db.options' => array(
-                'driver' => 'pdo_mysql',
-                'host' => 'localhost:3306',
-                'dbname' => 'dstr_orders',
-                'user' => 'root',
-                'password' => ''
+                'driver' => 'pdo_sqlite',
+                'path' => __DIR__.'/../../../../../../db.sqlite'
             )
         ));
+
+        $app['entity_manager'] = function ($app) {
+            return (new EntityManagerFactory())->build($app['db']);
+        };
+
+        //Repository providers
+
+        $app['order_repository'] = function ($app) {
+            return $app['entity_manager']->getRepository('Dstr\Domain\Model\Order\Order');
+        };
+
+        $app['product_repository'] = function ($app) {
+            return $app['entity_manager']->getRepository('Dstr\Domain\Model\Product\Product');
+        };
+
+        $app['client_repository'] = function ($app) {
+            return $app['entity_manager']->getRepository('Dstr\Domain\Model\Client\Client');
+        };
+
+
     }
 }

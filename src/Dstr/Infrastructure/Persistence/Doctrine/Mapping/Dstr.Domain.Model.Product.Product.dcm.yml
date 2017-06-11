@@ -1,0 +1,13 @@
+Dstr\Domain\Model\Product\Product:
+  type: entity
+  table: product
+  repositoryClass: Dstr\Infrastructure\Domain\Model\Product\ProductRepository
+  id:
+    id:
+      column: id
+      type: ProductId
+  fields:
+    name:
+      type: string
+    price:
+      type: float

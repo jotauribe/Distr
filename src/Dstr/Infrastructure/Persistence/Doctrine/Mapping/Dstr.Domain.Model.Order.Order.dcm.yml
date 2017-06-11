@@ -1,11 +1,11 @@
 Dstr\Domain\Model\Order\Order:
   type: entity
   table: order
+  repositoryClass: Dstr\Infrastructure\Domain\Model\Order\DoctrineOrderRepository
   id:
     userId:
       column: id
       type: OrderId
-  repositoryClass: Dstr\Infrastructure\Domain\Model\Order\DoctrineOrderRepository
   fields:
     date:
       type: date
@@ -16,6 +16,7 @@ Dstr\Domain\Model\Order\Order:
   manyToMany:
     orderItems:
       orphanRemoval: true
+      cascade: ["all"]
       targetEntity: OrderItem
       joinTable:
         name: Order_Items

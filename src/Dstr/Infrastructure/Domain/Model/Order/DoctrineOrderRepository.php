@@ -20,12 +20,12 @@ class DoctrineOrderRepository extends EntityRepository implements OrderRepositor
 
     public function OrderOfId(OrderId $orderId)
     {
-        $this.$this->find($orderId);
+        return $this->find($orderId);
     }
 
     public function OrdersOfClientId(ClientId $clientId)
     {
-        return $this->findBy(['clientId' => $clientId]);
+        return $this->findOneBy(['clientId' => $clientId]);
     }
 
     public function add(Order $order)
