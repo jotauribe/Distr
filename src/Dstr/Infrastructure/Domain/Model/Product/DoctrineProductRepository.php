@@ -19,7 +19,7 @@ class DoctrineProductRepository extends EntityRepository implements ProductRepos
 
     public function productOfId(ProductId $productId)
     {
-        $this->find($productId);
+        return $this->find($productId);
     }
 
     public function productOfName(string $name)
@@ -29,11 +29,13 @@ class DoctrineProductRepository extends EntityRepository implements ProductRepos
 
     public function add(Product $product)
     {
-        return $this->getEntityManager()->persist($product);
+        $this->getEntityManager()->persist($product);
+        $this->getEntityManager()->flush();
     }
 
     public function remove(Product $product)
     {
-        return $this->getEntityManager()->remove($product);
+        $this->getEntityManager()->remove($product);
+        $this->getEntityManager()->flush();
     }
 }

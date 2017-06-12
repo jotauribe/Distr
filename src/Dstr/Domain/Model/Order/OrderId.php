@@ -9,6 +9,8 @@
 namespace Dstr\Domain\Model\Order;
 
 
+use Ramsey\Uuid\Uuid;
+
 class OrderId
 {
     /**
@@ -23,6 +25,14 @@ class OrderId
     public function __construct(string $id = null)
     {
         $this->id = $id === null ? Uuid::uuid4()->toString() : $id;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function id()
+    {
+        return $this->id;
     }
 
     /**

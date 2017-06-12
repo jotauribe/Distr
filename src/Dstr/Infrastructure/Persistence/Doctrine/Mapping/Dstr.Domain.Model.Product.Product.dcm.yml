@@ -1,7 +1,7 @@
 Dstr\Domain\Model\Product\Product:
   type: entity
   table: product
-  repositoryClass: Dstr\Infrastructure\Domain\Model\Product\ProductRepository
+  repositoryClass: Dstr\Infrastructure\Domain\Model\Product\DoctrineProductRepository
   id:
     id:
       column: id

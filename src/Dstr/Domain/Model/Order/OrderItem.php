@@ -36,13 +36,21 @@ class OrderItem
 
     /**
      * OrderItem constructor.
-     * @param $product
-     * @param $quantity
+     * @param int $id
+     * @param Product $product
+     * @param float $quantity
      */
-    public function __construct($product, $quantity)
+    public function __construct(int $id, Product $product, float $quantity)
     {
+        $this->id = $id;
         $this->product = $product;
         $this->quantity = $quantity;
+        $this->updateTotal();
+    }
+
+    public function updateTotal()
+    {
+        $this->total = $this->product->price() * $this->quantity;
     }
 
     /**
@@ -67,6 +75,7 @@ class OrderItem
     public function changeQuantity($quantity)
     {
         $this->quantity = $quantity;
+        $this->updateTotal();
     }
 
     /**
@@ -75,13 +84,5 @@ class OrderItem
     public function total()
     {
         return $this->total;
-    }
-
-    /**
-     * @param $total
-     */
-    public function calculateTotal($total)
-    {
-        $this->total = $total;
     }
 }

@@ -4,7 +4,7 @@ Dstr\Domain\Model\Order\OrderItem:
   id:
     id:
       column: id
-      type: smallint
+      type: integer
   fields:
     quantity:
       type: float
@@ -14,7 +14,7 @@ Dstr\Domain\Model\Order\OrderItem:
       column: total
   manyToOne:
     product:
-      targetEntity: Product
+      targetEntity: Dstr\Domain\Model\Product\Product
       joinColumn:
         name: product_id
-        referencedColumnName: id;
+        referencedColumnName: id

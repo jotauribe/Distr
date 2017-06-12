@@ -37,6 +37,14 @@ class ProductId
     }
 
     /**
+     * @return null|string
+     */
+    public function id()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param ProductId $productId
      * @return bool
      */

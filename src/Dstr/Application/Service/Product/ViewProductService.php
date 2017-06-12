@@ -2,34 +2,32 @@
 /**
  * Created by PhpStorm.
  * User: Jota Uribe
- * Date: 10/6/2017
- * Time: 18:57
+ * Date: 11/6/2017
+ * Time: 20:36
  */
 
 namespace Dstr\Application\Service\Product;
 
 
-use Dstr\Domain\Model\Product\Product;
 use Dstr\Domain\Model\Product\ProductId;
 use Dstr\Domain\Model\Product\ProductRepository;
 
-class AddProductService
+class ViewProductService
 {
     private $productRepository;
 
+    /**
+     * ViewProductService constructor.
+     * @param ProductRepository $productRepository
+     */
     public function __construct(ProductRepository $productRepository)
     {
         $this->productRepository = $productRepository;
     }
 
-    public function execute(AddProductRequest $request)
-    {
-        $product = new Product(
-            new ProductId(),
-            $request->name(),
-            $request->price()
-        );
 
-        $this->productRepository->add($product);
+    public function execute(ViewProductRequest $request = null){
+        $productId = new ProductId($request->productId());
+        return $this->productRepository->productOfId($productId);
     }
 }

@@ -14,7 +14,7 @@ class Client
     /**
      * @var ClientId
      */
-    private $clientId;
+    private $id;
     /**
      * @var string
      */
@@ -57,7 +57,7 @@ class Client
      */
     public function id()
     {
-        return $this->clientId;
+        return $this->id;
     }
     /**
      * @return string

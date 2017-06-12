@@ -9,6 +9,8 @@
 namespace Dstr\Domain\Model\Client;
 
 
+use Ramsey\Uuid\Uuid;
+
 class ClientId
 {
     /**
@@ -23,6 +25,14 @@ class ClientId
     public function __construct(string $id = null)
     {
         $this->id = $id === null ? Uuid::uuid4()->toString(): $id;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function id()
+    {
+        return $this->id;
     }
 
     /**

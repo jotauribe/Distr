@@ -1,9 +1,9 @@
 Dstr\Domain\Model\Order\Order:
   type: entity
-  table: order
+  table: orders
   repositoryClass: Dstr\Infrastructure\Domain\Model\Order\DoctrineOrderRepository
   id:
-    userId:
+    id:
       column: id
       type: OrderId
   fields:
@@ -22,7 +22,7 @@ Dstr\Domain\Model\Order\Order:
         name: Order_Items
         joinColumns:
           order_id:
-            referencedColumnName: id;
+            referencedColumnName: id
         inverseJoinColumns:
           item_id:
             referencedColumnName: id

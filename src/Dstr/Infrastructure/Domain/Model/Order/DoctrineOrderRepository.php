@@ -30,11 +30,13 @@ class DoctrineOrderRepository extends EntityRepository implements OrderRepositor
 
     public function add(Order $order)
     {
-        return $this->getEntityManager()->persist($order);
+        $this->getEntityManager()->persist($order);
+        $this->getEntityManager()->flush();
     }
 
     public function remove(Order $order)
     {
-        return $this->getEntityManager()->remove($order);
+        $this->getEntityManager()->remove($order);
+        $this->getEntityManager()->flush();
     }
 }

@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SimulabWebapp</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css" />
+  <script src="assets/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+<div class="ui container">
+  <div class="ui secondary  menu">
+  <a class="active item">
+    Ordenes
+  </a>
+  <a class="item">
+    Inventario
+  </a>
+  <a class="item">
+    Otra vaina
+  </a>
+</div>
+</div>
+
+<div class="ui container">
+  <div class="ui icon input fluid">
+    <input type="text" placeholder="Search...">
+    <i class="search link icon"></i>
+  </div>
+</div>
+
+
+  <br>
+  <br>
+  <div class="ui container">
+    <div class="ui segment">
+      <table class="ui single line table">
+      <thead>
+        <tr><th>ID Cliente</th>
+        <th>Nombre del cliente</th>
+        <th>Orden</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="ui ribbon label">First</div>
+          </td>
+          <td>Celda</td>
+          <td><button class="ui right floated button">Boton</button></td>
+        </tr>
+        <tr>
+          <td>Celda</td>
+          <td>Celda</td>
+          <td><button class="ui right floated button">Boton</button></td>
+        </tr>
+        <tr>
+          <td>Celda</td>
+          <td>Celda</td>
+          <td><button class="ui right floated button">Boton</button></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr><th colspan="3">
+          <div class="ui right floated pagination menu">
+            <a class="icon item">
+              <i class="left chevron icon"></i>
+            </a>
+            <a class="item">1</a>
+            <a class="item">2</a>
+            <a class="item">3</a>
+            <a class="item">4</a>
+            <a class="icon item">
+              <i class="right chevron icon"></i>
+            </a>
+          </div>
+        </th>
+      </tr></tfoot>
+    </table>
+    </div>
+  </div>
+  <script type="text/javascript">
+  data = {
+    "product_name" : "product",
+    "product_price" : "23"
+  }
+  $.get( "http://localhost:8000/product/0bda8046-4587-4152-84b8-9c8780aa4238", function(data) {
+    alert("SE HIZO");
+  }).fail(function(data){
+      alert(data.responseText);
+  });
+  </script>
+</body>
+</html>
