@@ -75,12 +75,20 @@ class Order
     {
         $id = $this->next_id;
         $this->updateNextId();
-        return $id;
+        return $this->checkIdentities($id) ? $this->nextId() : $id;
     }
 
     private function updateNextId()
     {
         $this->next_id++;
+    }
+
+    public function checkIdentities(int $id){
+        foreach ($this->orderItems->getValues() as $orderItem){
+            if ($orderItem->id() === $id)
+                return true;
+        }
+        return false;
     }
 
     /**

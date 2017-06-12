@@ -42,7 +42,7 @@ class OrderItem
      */
     public function __construct(int $id, Product $product, float $quantity)
     {
-        $this->id = $id;
+        //$this->id = $id;
         $this->product = $product;
         $this->quantity = $quantity;
         $this->updateTotal();
@@ -51,6 +51,11 @@ class OrderItem
     public function updateTotal()
     {
         $this->total = $this->product->price() * $this->quantity;
+    }
+
+    public function id()
+    {
+        return $this->id;
     }
 
     /**

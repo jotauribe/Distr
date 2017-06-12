@@ -12,6 +12,7 @@ use Dstr\Application\Service\Product\ViewProductRequest;
 use Dstr\Infrastructure\Application\Service\Order\AddOrderRequestFactory;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 error_reporting(E_ALL);
 
@@ -45,19 +46,20 @@ $app->post('/product/add', function (Request $request) use ($app) {
 })->bind('add-product');
 
 $app->get('/product/{productId}', function ($productId) use ($app) {
-     $app['view_product_application_service']
-        ->execute(
-            new ViewProductRequest($productId)
-        );
-     return "OK";
-})->bind('view_product');
+     $response =  (array)$app['view_product_application_service']
+            ->execute(
+                new ViewProductRequest($productId)
+             );
+     $response = json_encode($response);
+     return $response;
+})->bind('view-product');
 
 $app->post('/order/add', function (Request $request) use ($app) {
     $app['add_order_application_service']
         ->execute(
             AddOrderRequestFactory::build($request)
         );
-    return "OK";
+    return new Response('<header>Thank you!</header>', 201);
 })->bind('add-order');
 
 $app->run();

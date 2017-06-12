@@ -3,8 +3,9 @@ Dstr\Domain\Model\Order\OrderItem:
   table: order_item
   id:
     id:
-      column: id
       type: integer
+      generator:
+        strategy: auto
   fields:
     quantity:
       type: float
