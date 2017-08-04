@@ -1,0 +1,13 @@
+Oriana\Orders\Domain\Model\Product\Product:
+  type: entity
+  table: product
+  repositoryClass: Oriana\Orders\Infrastructure\Domain\Model\Product\DoctrineProductRepository
+  id:
+    id:
+      column: id
+      type: ProductId
+  fields:
+    name:
+      type: string
+    price:
+      type: float

@@ -1,0 +1,19 @@
+Oriana\Orders\Domain\Model\Client\Client:
+  type: entity
+  table: client
+  repositoryClass: Oriana\Orders\Infrastructure\Domain\Model\Client\DoctrineClientRepository
+  id:
+    id:
+      column: id
+      type: ClientId
+  fields:
+    name:
+      type: string
+    lastName:
+      type: string
+    email:
+      type: string
+    createdOn:
+      type: date
+    updatedOn:
+      type: date

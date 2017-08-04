@@ -1,6 +1,6 @@
 {
-  "name": "dstr/dstr",
-  "description": "Dstr core",
+  "name": "oriana/orders",
+  "description": "Oriana order manager",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
@@ -22,7 +22,7 @@
   },
   "autoload":{
     "psr-4":{
-      "Dstr\\":"src/Dstr"
+      "Oriana\\Orders\\":"src/Oriana/Orders"
     }
   }
 }

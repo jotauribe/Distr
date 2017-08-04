@@ -1,0 +1,21 @@
+Oriana\Orders\Domain\Model\Order\OrderItem:
+  type: entity
+  table: order_item
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: auto
+  fields:
+    quantity:
+      type: float
+      column: quantity
+    total:
+      type: float
+      column: total
+  manyToOne:
+    product:
+      targetEntity: Oriana\Orders\Domain\Model\Product\Product
+      joinColumn:
+        name: product_id
+        referencedColumnName: id
