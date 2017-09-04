@@ -9,13 +9,13 @@
 namespace Oriana\Orders\Application\Service\Order;
 
 
-use Dstr\Domain\Model\Client\ClientId;
-use Dstr\Domain\Model\Order\Order;
-use Dstr\Domain\Model\Order\OrderId;
-use Dstr\Domain\Model\Order\OrderRepository;
-use Dstr\Domain\Model\Product\Product;
-use Dstr\Domain\Model\Product\ProductId;
-use Dstr\Domain\Model\Product\ProductRepository;
+use Oriana\Orders\Domain\Model\Client\ClientId;
+use Oriana\Orders\Domain\Model\Order\Order;
+use Oriana\Orders\Domain\Model\Order\OrderId;
+use Oriana\Orders\Domain\Model\Order\OrderRepository;
+use Oriana\Orders\Domain\Model\Product\Product;
+use Oriana\Orders\Domain\Model\Product\ProductId;
+use Oriana\Orders\Domain\Model\Product\ProductRepository;
 
 class AddOrderService
 {
